@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  PickThePic
+
+  Created by Lakshmi Thulasiram on 19/06/17.
+  Copyright © 2017 Lakshmi Thulasiram. All rights reserved.
+*/
+"NO_RECORDS_FOUND"="No records found";
+"INTERNET_CONNECTIVITY"="No internet connection";
+"VALID_KEYWORD_ERROR"="Enter a valid search keyword";

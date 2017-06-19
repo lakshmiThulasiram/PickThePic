@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jWn-Tc-N54">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="u4j-Ft-sKG">
+            <objects>
+                <viewController id="jWn-Tc-N54" customClass="SearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wBP-TZ-duc"/>
+                        <viewControllerLayoutGuide type="bottom" id="0tj-XR-FcA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hZY-nV-4bu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pbv-LO-F99">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4EM-48-a2r">
+                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qDv-Qs-Vbc">
+                                    <size key="itemSize" width="144" height="130"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="50" height="50"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchCell" id="r9w-xu-6co" customClass="SearchCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="144" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="144" height="130"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IRW-tA-Fra">
+                                                    <rect key="frame" x="2" y="0.0" width="139" height="130"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="imageViewSearch" destination="IRW-tA-Fra" id="Ehe-kI-urG"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FooterView" id="auM-WQ-qfz" customClass="SearchCollectionFooter">
+                                    <rect key="frame" x="0.0" y="130" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cA2-Ec-3GE">
+                                            <rect key="frame" x="177" y="15" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="cA2-Ec-3GE" firstAttribute="centerY" secondItem="auM-WQ-qfz" secondAttribute="centerY" id="2PF-eJ-gM4"/>
+                                        <constraint firstItem="cA2-Ec-3GE" firstAttribute="centerX" secondItem="auM-WQ-qfz" secondAttribute="centerX" id="RH9-Fl-d7p"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="loaderView" destination="cA2-Ec-3GE" id="aOR-3M-Jhd"/>
+                                    </connections>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="jWn-Tc-N54" id="baM-BG-BBN"/>
+                                    <outlet property="delegate" destination="jWn-Tc-N54" id="lVs-lw-8UN"/>
+                                </connections>
+                            </collectionView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l6t-j3-992">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentSearchCell" id="9C5-Dp-bId">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9C5-Dp-bId" id="HPq-hH-89Y">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="jWn-Tc-N54" id="Eww-aj-Jdz"/>
+                                    <outlet property="delegate" destination="jWn-Tc-N54" id="Lif-2e-xrh"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search for Pictures" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQT-dA-CcG">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jWn-Tc-N54" id="rRP-3p-aBp"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pbv-LO-F99" firstAttribute="centerY" secondItem="hZY-nV-4bu" secondAttribute="centerY" id="pHJ-0P-YA4"/>
+                            <constraint firstItem="pbv-LO-F99" firstAttribute="centerX" secondItem="hZY-nV-4bu" secondAttribute="centerX" id="s4I-gx-C6f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="4EM-48-a2r" id="SmJ-2D-hYQ"/>
+                        <outlet property="loaderView" destination="pbv-LO-F99" id="QTa-RR-nuf"/>
+                        <outlet property="searchBar" destination="uQT-dA-CcG" id="IvM-an-68I"/>
+                        <outlet property="searchDisplayController" destination="lzm-7k-QWG" id="6tE-Mt-62R"/>
+                        <outlet property="tableViewRecents" destination="l6t-j3-992" id="q2G-sS-DFp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkb-PD-1zD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="J2U-Al-Lic">
+                    <connections>
+                        <outlet property="delegate" destination="jWn-Tc-N54" id="IRs-7p-hYW"/>
+                        <outlet property="searchContentsController" destination="jWn-Tc-N54" id="bOQ-dM-FvH"/>
+                        <outlet property="searchResultsDataSource" destination="jWn-Tc-N54" id="CRl-vk-hwU"/>
+                        <outlet property="searchResultsDelegate" destination="jWn-Tc-N54" id="t0V-lh-7WV"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="lzm-7k-QWG">
+                    <connections>
+                        <outlet property="delegate" destination="jWn-Tc-N54" id="0R8-Ep-A9P"/>
+                        <outlet property="searchContentsController" destination="jWn-Tc-N54" id="sXl-fE-evC"/>
+                        <outlet property="searchResultsDataSource" destination="jWn-Tc-N54" id="AOe-su-9QV"/>
+                        <outlet property="searchResultsDelegate" destination="jWn-Tc-N54" id="CHL-cP-wex"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-180" y="-90.404797601199405"/>
+        </scene>
+    </scenes>
+</document>
