@@ -144,6 +144,7 @@ static NSString * const reuseIdentifier = kSearchCellID;
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    [self resignKeyboard];
     if (scrollView.contentOffset.y + scrollView.frame.size.height == scrollView.contentSize.height)
     {
         if([self canSendNextSearchRequest])//This check as Google API returns only first 100 search results
